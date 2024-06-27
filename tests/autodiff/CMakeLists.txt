@@ -1,0 +1,16 @@
+macro(add_cppad_contact_bench_unit_test name)
+  include_directories(SYSTEM ${cppad_INCLUDE_DIR})
+  add_contact_bench_unit_test(${name} PACKAGES cppad)
+  add_dependencies(test-cpp-cppad test-cpp-${name})
+  target_link_libraries(test-cpp-${name} PUBLIC ${cppad_LIBRARY})
+endmacro(add_cppad_contact_bench_unit_test)
+
+if(BUILD_WITH_AUTODIFF_SUPPORT)
+  add_custom_target(test-cpp-cppad)
+  set_target_properties(test-cpp-cppad PROPERTIES EXCLUDE_FROM_DEFAULT_BUILD True)
+
+  add_cppad_contact_bench_unit_test(friction-constraints-cppad)
+  add_cppad_contact_bench_unit_test(delassus-cppad)
+  add_cppad_contact_bench_unit_test(contact-problem-cppad)
+  add_cppad_contact_bench_unit_test(solvers-cppad)
+endif(BUILD_WITH_AUTODIFF_SUPPORT)

@@ -1,0 +1,4 @@
+examples/log/
+*.pyc
+build*/
+compile_commands.json

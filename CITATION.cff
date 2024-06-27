@@ -1,0 +1,18 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Le Lidec
+    given-names: Quentin
+  - family-names: Jallet
+    given-names: Wilson
+  - family-names: Montaut
+    given-names: Louis
+  - family-names: Schmid
+    given-names: Cordelia
+  - family-names: Laptev
+    given-names: Ivan
+  - family-names: Carpentier
+    given-names: Justin
+title: "Contact Models in Robotics: a Comparative Analysis"
+version: 1.0.0
+date-released: 2021-08-11
