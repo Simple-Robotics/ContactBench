@@ -1,6 +1,6 @@
 import numpy as np
 from utils.models import build_solo_problem, build_talos_problem, build_allegro_hand_problem, build_cube_problem
-from pycontact import ContactProblem, NCPPGSSolver, CCPPGSSolver, CCPADMMSolver, RaisimSolver, NCPStagProjSolver, LCPPGSSolver, CCPNewtonPrimalSolver
+from pycontact import ContactProblem, NCPPGSSolver, CCPPGSSolver, CCPADMMSolver, RaisimSolver, NCPStagProjSolver, LCPPGSSolver, CCPNewtonPrimalSolver, ContactSolverSettings
 from tap import Tap
 import os
 from pathlib import Path
@@ -89,7 +89,13 @@ solver.setProblem(prob)
 eps_reg = 1e-0
 stats = args.stats
 max_iter =  10000
-solver.solve(prob, np.zeros((3 * nc, 1)), 100, 1e-6, statistics=stats, eps_reg = eps_reg)
+contact_settings = ContactSolverSettings()
+contact_settings.max_iter_ = 100
+contact_settings.th_stop_ = 1e-6
+contact_settings.timings_ = False
+contact_settings.statistics_ = stats
+contact_settings.rel_th_stop_ = 1e-12
+solver.solve(prob, np.zeros((3 * nc, 1)),settings = contact_settings)
 # solver.solve(prob, np.zeros((3 * nc, 1)), max_iter, 1e-12, rel_th_stop=1e-12, statistics=stats)
 print(solver.n_iter_)
 print(solver.ncp_comp_reg_)

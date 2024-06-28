@@ -6,8 +6,8 @@ C++ implementation of various contact models and solvers used for robotics simul
 ### The contact problem
 
 The contact problem is formulated as a Non-linear Complementarity Problem (NCP):
-$$ c = G \lambda + g \\
-\mathcal{K}_\mu \ni \lambda \perp c + \Gamma_\mu(c) \in \mathcal{K}^*_\mu $$
+$$c = G \lambda + g \\
+\mathcal{K}_\mu \ni \lambda \perp c + \Gamma_\mu(c) \in \mathcal{K}^*_\mu$$
 
 Several algorithms solving this problem or a relaxation are implemented and empirically evaluated.
 We also benchmark various algorithms for gradients computation: automatic differentiation and implicit differentiation.
