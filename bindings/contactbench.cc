@@ -725,6 +725,7 @@ void expose_contact_bench() {
         .DEF_R_CLASS_ATTRIB(Statistics, dual_feas_)
         .DEF_R_CLASS_ATTRIB(Statistics, sig_comp_)
         .DEF_R_CLASS_ATTRIB(Statistics, ncp_comp_)
+        .DEF_R_CLASS_ATTRIB(Statistics, cost_)
         // Exposing methods
         .def("addStop", &Statistics::addStop, bp::args("self", "stop"),
              bp::return_value_policy<bp::return_by_value>())
@@ -738,6 +739,9 @@ void expose_contact_bench() {
              bp::return_value_policy<bp::return_by_value>())
         .def("addNcpComp", &Statistics::addNcpComp,
              bp::args("self", "ncp_comp"),
+             bp::return_value_policy<bp::return_by_value>())
+        .def("addCost", &Statistics::addCost,
+             bp::args("self", "cost"),
              bp::return_value_policy<bp::return_by_value>())
         .def("addPrimFeas", &Statistics::addPrimFeas,
              bp::args("self", "prim_feas"),

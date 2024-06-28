@@ -28,6 +28,7 @@ public:
   std::vector<T> dual_feas_;
   std::vector<T> sig_comp_;
   std::vector<T> ncp_comp_;
+  std::vector<T> cost_;
 
   Statistics(){};
 
@@ -38,6 +39,7 @@ public:
   void addDualFeas(T dual_feas);
   void addSigComp(T sig_comp);
   void addNcpComp(T ncp_comp);
+  void addCost(T cost);
   void reset();
 };
 
@@ -929,7 +931,7 @@ public:
                          const Ref<const VectorXs> &lam);
 
   void addStatistics(T stop, T rel_stop, T comp, T sig_comp, T ncp_comp,
-                     T prim_feas, T dual_feas);
+                     T prim_feas, T dual_feas, T cost);
 
   template <typename VecIn, typename VecIn2, typename VecOut>
   void complianceMap(const ContactProblem<T, IceCreamCone> &prob,

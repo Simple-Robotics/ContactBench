@@ -2365,7 +2365,7 @@ void CCPNewtonPrimalSolver<T>::computeStatistics(
 template <typename T>
 void CCPNewtonPrimalSolver<T>::addStatistics(T stop, T rel_stop, T comp,
                                              T sig_comp, T ncp_comp,
-                                             T prim_feas, T dual_feas) {
+                                             T prim_feas, T dual_feas, T cost) {
   stats_.addStop(stop);
   stats_.addRelStop(rel_stop);
   stats_.addComp(comp);
@@ -2373,6 +2373,7 @@ void CCPNewtonPrimalSolver<T>::addStatistics(T stop, T rel_stop, T comp,
   stats_.addPrimFeas(prim_feas);
   stats_.addSigComp(sig_comp);
   stats_.addNcpComp(ncp_comp);
+  stats_.addCost(cost);
 }
 
 template <typename T>
@@ -2702,7 +2703,7 @@ bool CCPNewtonPrimalSolver<T>::_solve_impl(
     if (settings.statistics_) {
       computeStatistics(prob, R_reg_, dq_, lam_);
       addStatistics(stop_, rel_stop_, comp_reg_, sig_comp_reg_, ncp_comp_reg_,
-                    prim_feas_, dual_feas_reg_);
+                    prim_feas_, dual_feas_reg_, cost_);
     }
     if (stop_ < th_stop_ || rel_stop_ < rel_th_stop_) {
       CONTACTBENCH_NOMALLOC_END;
@@ -3443,6 +3444,10 @@ template <typename T> void Statistics<T>::addNcpComp(T ncp_comp) {
   ncp_comp_.push_back(ncp_comp);
 }
 
+template <typename T> void Statistics<T>::addCost(T cost) {
+  cost_.push_back(cost);
+}
+
 template <typename T> void Statistics<T>::reset() {
   stop_.clear();
   rel_stop_.clear();
@@ -3451,6 +3456,7 @@ template <typename T> void Statistics<T>::reset() {
   dual_feas_.clear();
   sig_comp_.clear();
   ncp_comp_.clear();
+  cost_.clear();
 }
 
 } // namespace contactbench
