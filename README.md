@@ -28,3 +28,11 @@ If you find this helpful work, please cite the related paper:
   author={Le Lidec, Quentin and Jallet, Wilson and Montaut, Louis and Laptev, Ivan and Schmid, Cordelia and Carpentier, Justin}
 }
 ```
+
+### Credits
+
+The following people have been involved in the development of **contactbench**:
+
+-   [Quentin Le Lidec](https://quentinll.github.io) (Inria): main developer and manager of the project
+-   [Justin Carpentier](https://jcarpent.github.io) (Inria): manager of the project
+-   [Wilson Jallet](https://github.com/ManifoldFR) (LAAS-CNRS/Inria): developer of the project
