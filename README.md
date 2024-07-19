@@ -1,4 +1,4 @@
-# Contactbench
+# Contact Bench
 
 C++ implementation of various contact models and solvers used for robotics simulation.
 
@@ -31,8 +31,10 @@ If you find this helpful work, please cite the related paper:
 
 ### Credits
 
-The following people have been involved in the development of **contactbench**:
+The following people have been involved in the development of **Contact Bench**:
 
 -   [Quentin Le Lidec](https://quentinll.github.io) (Inria): main developer and manager of the project
 -   [Justin Carpentier](https://jcarpent.github.io) (Inria): manager of the project
--   [Wilson Jallet](https://github.com/ManifoldFR) (LAAS-CNRS/Inria): developer of the project
+-   [Wilson Jallet](https://github.com/ManifoldFR) (LAAS-CNRS/Inria): core developer
+-   [Fabian Schramm](https://github.com/fabinsch) (Inria): core developer
+-   [Louis Montaut](https://github.com/lmontaut) (Inria): core developper
